@@ -1,0 +1,5 @@
+node_modules
+npm-debug.log
+client_keys.js
+*.app
+*.app.zip
