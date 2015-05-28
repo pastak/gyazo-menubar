@@ -25,6 +25,7 @@ Any Pull-Request is Welcome!
 $ git clone git@github.com:pastak/gyazo-menubar.git
 $ cd gyazo-menubar
 $ <write some code>
+$ electron .
 $ npm run build # build for MacOSX
 ```
 
