@@ -1,4 +1,5 @@
 var app = require('app');
+var path = require('path')
 var BrowserWindow = require('browser-window');
 var menubar = require('menubar');
 var dialog = require('dialog');
@@ -18,18 +19,17 @@ var token = '';
 
 
 var mb = menubar({
-  icon: './icon.png'
+  icon: path.join(__dirname, '/Icon.png')
 })
 
-
-mb.on('after-create-window', function(){
+mb.on('show', function(){
   if(localStorage.getItem('oauthToken')){
     token = localStorage.getItem('oauthToken');
     var loadPath = 'file://'+ __dirname+'/static/list.html?token='+token;
     mb.window.loadUrl(loadPath);
     mb.window.setVisibleOnAllWorkspaces(true)
   }else{
-    mb.window.hide()
+    mb.window.hide();
     var win = new BrowserWindow({ width: 800, height: 600 });
     win.webContents.on('will-navigate', function(event, url){
       if(/^https?:\/\/pastak.github.io\/gyazo-menubar\//.test(url)){
@@ -61,6 +61,7 @@ mb.on('after-create-window', function(){
       }
     })
     win.loadUrl('https://api.gyazo.com/oauth/authorize?client_id='+client.clientId+'&redirect_uri=http://pastak.github.io/gyazo-menubar/&response_type=code')
+    mb.window.loadUrl('file://'+ __dirname+'/static/oauth.html')
   }
 })
 
