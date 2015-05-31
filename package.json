@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "rm -rf Gyazo-Menubar.app && electron-packager ./ Gyazo-Menubar --platform=darwin --arch=x64 --version=0.25.1 --prune --ignore=node_modules --ignore='Gyazo-Menubar.app.zip'"
+    "build": "rm -rf Gyazo-Menubar.app && electron-packager ./ Gyazo-Menubar --platform=darwin --arch=x64 --version=0.27.1 --prune --ignore=node_modules --ignore='Gyazo-Menubar.app.zip'"
   },
   "author": "",
   "license": "MIT",
