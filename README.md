@@ -31,4 +31,4 @@ $ npm run build # build for MacOSX
 
 # Download
 
-- MacOSX: https://www.dropbox.com/s/ccx705tu9hvh5yf/Gyazo-Menubar.app.zip?dl=0
+- MacOSX: https://www.dropbox.com/s/ccx705tu9hvh5yf/Gyazo-Menubar.app.zip?dl=1
