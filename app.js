@@ -32,7 +32,6 @@ mb.on('after-create-window', function(){
     mb.window.hide()
     var win = new BrowserWindow({ width: 800, height: 600 });
     win.webContents.on('will-navigate', function(event, url){
-      console.log(url)
       if(/^https?:\/\/pastak.github.io\/gyazo-menubar\//.test(url)){
         var _code = url.split('?code=')[1];
 
