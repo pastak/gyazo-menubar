@@ -8,7 +8,7 @@ var mkdirp = require('mkdirp')
 var request = require('request-promise');
 var LocalStorage = require('node-localstorage').LocalStorage;
 
-var lsDir = app.getPath('appData')+'/GyazoMenubar/localStorage';
+var lsDir = app.getPath('appData')+'/gyazo-menubar/Local Storage/node';
 
 var client = require('./client_keys.js');
 
@@ -31,13 +31,12 @@ mb.on('show', function(){
   }else{
     mb.window.hide();
     var win = new BrowserWindow({ width: 800, height: 600 });
-    win.webContents.on('will-navigate', function(event, url){
-      if(/^https?:\/\/pastak.github.io\/gyazo-menubar\//.test(url)){
-        var _code = url.split('?code=')[1];
+    win.webContents.on('did-get-redirect-request', function(event,oldUrl,newUrl){
+      if(/^https?:\/\/pastak.github.io\/gyazo-menubar\//.test(newUrl)){
+        var _code = newUrl.split('?code=')[1];
 
         request({
-          //XXX: On document, url host is api.gyazo.com but has redirect problem so use gyazo.com
-          uri: 'https://gyazo.com/oauth/token',
+          uri: 'https://api.gyazo.com/oauth/token',
           method: 'POST',
           followRedirect: true,
           followAllRedirects: true,
@@ -49,6 +48,7 @@ mb.on('show', function(){
             grant_type: 'authorization_code'
           }
         }).then(function(response){
+          console.log(response)
           var _token = JSON.parse(response).access_token;
           localStorage.setItem('oauthToken', _token)
           dialog.showMessageBox({

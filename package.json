@@ -1,11 +1,11 @@
 {
   "name": "gyazo-menubar",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "rm -rf Gyazo-Menubar.app && electron-packager ./ Gyazo-Menubar --platform=darwin --arch=x64 --version=0.27.1 --prune --asar --ignore=node_modules --ignore='.*.zip'",
-    "build-win": "electron-packager ./ Gyazo-Menubar --platform=win32 --arch=x64 --version=0.27.1 --prune --asar --ignore=node_modules && zip -r Gyazo-Menubar-win32.zip Gyazo-Menubar-win32"
+    "build": "electron-packager ./ Gyazo-Menubar --platform=all --arch=all --version=0.33.3 --prune --asar --out=build --ignore=build --overwrite",
+    "build-mac": "electron-packager ./ Gyazo-Menubar --platform=darwin --arch=x64 --version=0.33.3 --prune --asar  --out=build --ignore=build --overwrite"
   },
   "author": "",
   "license": "MIT",

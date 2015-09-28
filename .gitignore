@@ -1,6 +1,3 @@
 node_modules
-npm-debug.log
 client_keys.js
-*.app
-*.app.zip
-Gyazo-Menubar-win32*
+build
